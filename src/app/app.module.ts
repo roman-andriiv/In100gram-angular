@@ -11,12 +11,17 @@ import {authInterceptorProvider} from "./helper/auth-interceptor.service";
 import {authErrorInterceptorProvider} from "./helper/error-interceptor.service";
 import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
+import {NavigationComponent} from './layout/navigation/navigation.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatMenuModule} from "@angular/material/menu";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,9 @@ import {RegisterComponent} from './auth/register/register.component';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTooltipModule,
+    MatMenuModule
   ],
   providers: [authInterceptorProvider, authErrorInterceptorProvider],
   bootstrap: [AppComponent]

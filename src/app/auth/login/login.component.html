@@ -1,30 +1,25 @@
 <div class="login-page">
   <h2>Login</h2>
   <form [formGroup]="loginForm">
-    <div>
-      <div class="justify-content-center">
-        <div></div>
-        <mat-form-field appearence="outline">
-          <mat-label>Email</mat-label>
-          <input formControlName="username"
-                 matInput>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field appearence="outline">
-          <mat-label>Password</mat-label>
-          <input formControlName="password" matInput
-                 type="password">
-        </mat-form-field>
-      </div>
+    <div class="justify-content-center">
+      <mat-form-field appearence="outline">
+        <mat-label>Email</mat-label>
+        <input formControlName="username" matInput>
+      </mat-form-field>
+    </div>
+    <div class="justify-content-center">
+      <mat-form-field appearence="outline">
+        <mat-label>Password</mat-label>
+        <input formControlName="password" matInput
+               type="password">
+      </mat-form-field>
+    </div>
 
-      <div class="row" id="controls">
-        <button (click)="submit()" [disabled]="loginForm.invalid" color="primary" mat-flat-button style="width: 20%">
-          Login
-        </button>
-
-        <a routerLink="/register">Register</a>
-      </div>
+    <div class="row" id="controls">
+      <button (click)="submit()" [disabled]="loginForm.invalid" color="primary" mat-flat-button style="width: 20%">
+        Login
+      </button>
+      <a routerLink="/register">Register</a>
     </div>
   </form>
 </div>

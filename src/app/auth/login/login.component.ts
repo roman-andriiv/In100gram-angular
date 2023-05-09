@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from "../../services/auth.service";
-import {TokenStorageService} from "../../services/token-storage.service";
+import {AuthService} from '../../services/auth.service';
+import {TokenStorageService} from '../../services/token-storage.service';
 import {Router} from '@angular/router';
-import {NotificationService} from "../../services/notification.service";
+import {NotificationService} from '../../services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   createLoginForm(): FormGroup {
     return this.fb.group({
       username: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.compose([Validators.required])]
+      password: ['', Validators.compose([Validators.required])],
     });
   }
 

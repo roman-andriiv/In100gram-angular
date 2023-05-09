@@ -4,9 +4,8 @@ import {TokenStorageService} from "../services/token-storage.service";
 import {Observable} from "rxjs";
 
 const TOKEN_HEADER_KEY = 'Authorization';
-@Injectable({
-  providedIn: 'root'
-})
+
+@Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
 
   constructor(private tokenService: TokenStorageService) {
@@ -23,5 +22,5 @@ export class AuthInterceptorService implements HttpInterceptor {
 }
 
 export const authInterceptorProvider = [
-  {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}
-]
+  {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+];

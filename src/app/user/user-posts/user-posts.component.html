@@ -1,0 +1,38 @@
+<div *ngIf="isUserPostsLoaded">
+  <div style="text-align: right;">
+    <button color="primary" mat-flat-button routerLink="/profile/add">Add post</button>
+  </div>
+
+  <h2>{{posts.length}} posts</h2>
+
+  <mat-card *ngFor="let post of posts; let i=index" class="post-card">
+    <mat-card-header style="text-align: left;">
+      <div class="example-header-image" mat-card-avatar></div>
+      <mat-card-title>{{post.title}}</mat-card-title>
+      <mat-card-subtitle>{{post.location}}</mat-card-subtitle>
+    </mat-card-header>
+    <img [src]="formatImage(post.image)" alt="post image" mat-card-image>
+    <mat-card-content>
+      <p>{{post.description}}</p>
+    </mat-card-content>
+
+    <div style="text-align: left;">
+      <p *ngFor="let comment of post.comments; let c = index">
+        <span style="font-weight: 500;">{{comment.username}}</span>: {{comment.message}}
+        <button (click)="deleteComment(comment.id, i, c)" color="accent" mat-button>
+          <mat-icon color="accent">clear</mat-icon>
+        </button>
+      </p>
+    </div>
+
+    <mat-card-actions align="end">
+      <button (click)="removePost(post, i)" color="warn" mat-button>
+        <mat-icon color="warn">delete</mat-icon>
+        Remove post
+      </button>
+    </mat-card-actions>
+
+    <mat-card-subtitle align="start">Likes: {{post.likes}} <span *ngIf="post.likes>0">by {{post.liksedUsers}}</span>
+    </mat-card-subtitle>
+  </mat-card>
+</div>

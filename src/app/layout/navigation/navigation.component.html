@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <span routerLink="/main" style="cursor: pointer; margin-left: 20px;">In100gram</span>
+
+  <span class="spacer"></span>
+
+  <button *ngIf="!isLoggedIn" class="example-icon favorite-icon" mat-icon-button matTooltip="Login" routerLink="/login">
+    <mat-icon>login</mat-icon>
+  </button>
+
+  <h3 *ngIf="isDataLoaded">{{this.user.firstName}} {{this.user.lastName}}</h3>
+
+  <button *ngIf="isLoggedIn" [matMenuTriggerFor]="menu" mat-icon-button matTooltip="Profile">
+    <mat-icon color="accent">account_box</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" id="menu-item">
+    <button mat-menu-item routerLink="/profile">Profile</button>
+    <button (click)="logout()" mat-menu-item>Logout</button>
+  </mat-menu>
+</mat-toolbar>

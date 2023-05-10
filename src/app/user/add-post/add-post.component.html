@@ -1,1 +1,36 @@
-<p>add-post works!</p>
+<div>
+  <div style="text-align: right;">
+    <button color="primary" mat-flat-button routerLink="/profile">My posts</button>
+  </div>
+
+  <h2>Create post</h2>
+  <form [formGroup]="postForm">
+
+    <img
+      [src]="previewImgUrl ||'https://cdn1.iconfinder.com/data/icons/photography-outline-9/64/landscape_landscape_photography_camera_effect_image_picture-512.png'"
+      class="post-image">
+
+    <input #fileInput (change)="onFileSelected($event)" style="display: none" type="file">
+    <button (click)="fileInput.click()" mat-button>Pick file</button>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Title</mat-label>
+      <input formControlName="title" matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Description</mat-label>
+      <input formControlName="description" matInput>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w-100">
+      <mat-label>Location</mat-label>
+      <input formControlName="location" matInput>
+    </mat-form-field>
+
+    <div style="text-align: right;">
+      <button (click)="submit()" [disabled]="postForm.invalid" color="primary" mat-flat-button>Create post</button>
+    </div>
+
+  </form>
+</div>

@@ -1,5 +1,12 @@
 .post-card {
   display: flex;
   margin: 1rem auto;
-  width: 80%;
+  width: 48%;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
 }
